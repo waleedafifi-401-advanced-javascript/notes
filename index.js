@@ -1,12 +1,13 @@
-#!/usr/bin/env node
-
 'use strict';
 
-const input = require('./lib/input.js');
-const notes = require('./lib/notes.js');
+const Input = require('./lib/input');
+const Note = require('./lib/notes');
 
-let creatObjectNote = new input();
+const inputObj = new Input();
+if (inputObj.valid()) {
 
-let newNote = new notes(creatObjectNote);
-newNote.execute(creatObjectNote);
-newNote.add(creatObjectNote);
+  const objOFNote = new Note(inputObj);
+
+  objOFNote.execute(inputObj);
+  objOFNote.add(inputObj);
+}

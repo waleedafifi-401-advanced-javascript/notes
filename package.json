@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/waleedafifi-401-advanced-javascript/notes#readme",
   "dependencies": {
+    "jest": "^26.4.2",
     "minimist": "^1.2.5"
   }
 }
