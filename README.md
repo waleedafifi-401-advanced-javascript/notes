@@ -24,3 +24,12 @@ npm i minimist
     Action and input you used:  input { action: 'add', payload: 'This is a really cool thing that I wanted to remember for later' }
     Text you have entered:  { id: 11, note: 'This is a really cool thing that I wanted to remember for laterz' }
 ```
+
+**Testing**
+```
+npm test
+```
+
+#### Pull request
+[Class 01](https://github.com/waleedafifi-401-advanced-javascript/notes/pull/1)
+[Class 02](https://github.com/waleedafifi-401-advanced-javascript/notes/pull/2)
