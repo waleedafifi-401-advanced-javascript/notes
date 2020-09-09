@@ -28,6 +28,8 @@ if (inputObj.valid()) {
   objOFNote.list(inputObj).then(mongoose.disconnect);
 } else if (inputObj.delete()) {
   objOFNote.delete(inputObj).then(mongoose.disconnect);
+} else if (inputObj.update()) {
+  objOFNote.update(inputObj).then(mongoose.disconnect);
 } else {
   help();
 }
