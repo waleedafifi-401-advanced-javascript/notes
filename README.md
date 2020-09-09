@@ -43,6 +43,7 @@ npm test
 #### Pull request
 [Class 01](https://github.com/waleedafifi-401-advanced-javascript/notes/pull/1)
 [Class 02](https://github.com/waleedafifi-401-advanced-javascript/notes/pull/2)
+[Class 03](https://github.com/waleedafifi-401-advanced-javascript/notes/pull/5)
 
 #### UML
 ![UML](assets/uml.jpg)

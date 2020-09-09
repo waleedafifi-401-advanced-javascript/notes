@@ -1,84 +1,96 @@
 'use strict';
 
-require('@code-fellows/supergoose');
-
 const Note = require('../lib/notes');
 
-// jest.spyOn(global.console, 'log');
+jest.spyOn(global.console, 'log');
 
+const obj = {
+  note: 'Cat Nooote',
+  id: '0599950093',
+  category: 'CAT',
+  action: '--add',
+  updatedNote: 'update note',
+};
+describe('Note Module', () => {
+  it('execute() does its work', () => {
+    const objOFNote = new Note({
+      note: 'yes',
+      action: '-a',
+    });
+    objOFNote.execute({
+      note: 'yes',
+      action: '-a',
+    });
+    expect(console.log).toHaveBeenCalled();
+  });
 
-describe('Note Model', ()=> {
-  it('can create() a new Note item ', ()=> {
-    let obj = {note: 'test Note 1', category: 'FRUIT', action: 'add'};
-    const note = new Note(obj);
+  it('add() does its work', () => {
+    const objOFNote = new Note(obj);
+    objOFNote.add(obj);
+    expect(console.log).toHaveBeenCalled();
+  });
+  it('add() does not  work', () => {
 
-    return note.add(obj)
-      .then(record => {
-        Object.keys(obj).forEach(key => {
-          console.log("Keys: ", record);
-          expect(record[key]).toEqual(obj[key]);
-        });
-      });
-  }) ;
+    const objOFNote = new Note(obj);
+    objOFNote.add(obj);
+    expect(console.log).toHaveBeenCalled();
+  });
 
-  it('can list() a Note item()', ()=> {
-    let obj = {note: 'test Note 1', category: 'FRUIT', action: 'add'};
-    const note = new Note(obj);
-    return note.add(obj)
-      .then(record => {
-        return note.list(obj)
-          .then(noteItem => {
-            Object.keys(obj).forEach(key=> {
-              expect(noteItem[0][key]).toEqual(obj[key]);
-            });
-          });
-      });
+  it('add() does its work', () => {
+    const obj = {
+      note: 'valid noye',
+      id: '0599950093',
+      category: 'CAT',
+    };
+    const objOFNote = new Note(obj);
+    objOFNote.add(obj);
+    expect(console.log).toHaveBeenCalled();
+  });
+  
+  it('render() does it work', () => {
+    const addObj = new Note(obj);
+    addObj.render(obj);
+    expect(console.log).toHaveBeenCalled();
+  });
+  
+  it('render() does it work', () => {
+    const obj = {
+      id: '0599950093',
+      updatedNote: 'new note',
+    };
+    const addObj = new Note(obj);
+    addObj.render(obj);
+    expect(console.log).toHaveBeenCalled();
+  });
+  
+  it('list() does it work if have a category', () => {
+    const addObj = new Note(obj);
+    addObj.list(obj);
+    expect(console.log).toHaveBeenCalled();
+  });
+  
+  it('list() does its work if it does not have a category', () => {
+    const obj = {
+      note: 'valid noye',
+      id: '0599950093',
+      updatedNote: 'new note',
+    };
 
+    const objOFNote = new Note(obj);
+    objOFNote.list(obj);
+    expect(console.log).toHaveBeenCalled();
+  });
+
+  it('delete() does it is work', () => {
+    const objOFNote = new Note(obj);
+    objOFNote.delete(obj);
+    expect(console.log).toHaveBeenCalled();
+  });
+  
+  it('update() does it is work', () => {
+    const objOFNote = new Note(obj);
+    objOFNote.update(obj);
+    expect(console.log).toHaveBeenCalled();
   });
 
 });
-
-
-// describe('Note Module', () => {
-
-//   it('add() should save the note to database', () => {
-//     let obj = { note: 'note', category: 'TEEST' };
-//     const notes = new Note(obj);
-//     return notes.add()
-//       .then(record => {
-//         Object.keys(obj).forEach(key => {
-//           expect(key).toEqual(key);
-//         });
-//       });
-//   });
-
-//   it('list() all note from database', () => {
-//     let obj = { note: 'note', category: 'TEEST' };
-//     const notes = new Note(obj);
-//     return notes.list(obj)
-//       .then(record => {
-//         Object.keys(obj).forEach(key => {
-//           expect(key).toEqual(key);
-//         });
-//       });
-//   });
-
-  // it('execute() does its work', () => {
-  //   const objOFNote = new Note({ payload: 'yes', action: '--a' });
-  //   objOFNote.execute({ payload: 'yes', action: '--a' });
-  //   expect(console.log).toHaveBeenCalled();
-  // });
-
-  // it('add() does its work', () => {
-  //   const objOFNote = new Note({ action: '--a', error: 'ERROR: this is not valid arg' });
-  //   objOFNote.add({ action: '--a', error: 'ERROR: this is not valid arg' });
-  //   expect(console.log).toHaveBeenCalled();
-  // });
-
-  // it('add() does its work', () => {
-  //   const objOFNote = new Note({ payload: 'yes', action: '--a', note: 'valid note' });
-  //   objOFNote.add({ payload: 'yes', action: '--a', note: 'valid note' });
-  //   expect(console.log).toHaveBeenCalled();
-  // });
-
-// });
